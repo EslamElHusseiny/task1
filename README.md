@@ -23,6 +23,6 @@
  # docker run -it -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
                   -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY  \
                   -e StackName=$StackName \
-		  -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
-		  -e Repo=$Repo afarid/stack
+                  -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
+                  -e Repo=$Repo afarid/stack
 ```
