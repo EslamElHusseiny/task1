@@ -1,4 +1,4 @@
-#CoreOS
+#TasK
 
 #Installation steps 
 
@@ -9,6 +9,7 @@
  # export AWS_SECRET_ACCESS_KEY='Your AWS secret key'
  # export AWS_DEFAULT_REGION=<Region you wanna create stack in>
  # export Repo=<Enter The repo that contain Yaml and Template file>
+ # export StackName=<Enter your stack name>
 ``` 
 
 2-Build the container
