@@ -3,13 +3,15 @@ import yaml
 import json
 import sys
 import boto3
+import glob
 
-os.system("git clone " + os.environ["Repo"] + " app")
+TemplateFile = glob.glob('./*.template')
+YamlFile = glob.glob('./*.yaml')
 
-with open(os.environ["Parameters"], 'r') as r:
+with open(YamlFile[0], 'r') as r:
     Parm = yaml.load(r)
 
-f = open(os.environ["Template"],'r')
+f = open(TemplateFile[0],'r')
 template = f.read()
 f.close()
 

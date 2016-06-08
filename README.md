@@ -8,6 +8,7 @@
  # export AWS_ACCESS_KEY_ID='Your AWS access key'
  # export AWS_SECRET_ACCESS_KEY='Your AWS secret key'
  # export AWS_DEFAULT_REGION=<Region you wanna create stack in>
+ # export Repo=<Enter The repo that contain Yaml and Template file>
 ``` 
 
 2-Build the container
@@ -22,6 +23,5 @@
                   -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY  \
                   -e StackName=$StackName \
 		  -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
-                  -e Template=$Template \ 
-                  -e Parameters=$Parameters \ 
+		  -e Repo=$Repo afarid/stack
 ```
