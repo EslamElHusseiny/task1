@@ -1,12 +1,23 @@
 {
    "AWSTemplateFormatVersion" : "2010-09-09",
+   "Parameters": {
+      "InstanceType" : {
+         "Description" : "EC2 HVM instance type (t2.micro, etc).",
+         "Type" : "String",
+         "Default" : "t2.micro"
+       },
+      "KeyPair" : {
+         "Description" : "The name of an EC2 Key Pair to allow SSH access to the instance.",
+         "Type" : "String"
+       }
+    },
    "Resources" : {
       "EC2Instance" : {
          "Type" : "AWS::EC2::Instance",
          "Properties" : {
             "ImageId" : "ami-f5f41398",
-            "InstanceType" : "t2.micro",
-            "KeyName" : "test"
+            "InstanceType" : {"Ref": "InstanceType"},
+            "KeyName" : {"Ref": "KeyPair"}
          }
       }
    }

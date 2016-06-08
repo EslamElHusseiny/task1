@@ -4,15 +4,26 @@ import json
 import sys
 import boto3
 
-print("Creating new stack ... ")
+
+with open(os.environ["Parameters"], 'r') as r:
+    Parm = yaml.load(r)
+
 f = open(os.environ["Template"],'r')
 template = f.read()
 f.close()
 
+var=[]
+for key, value in Parm.iteritems():
+   temp = { 'ParameterKey': key , 'ParameterValue': value }
+   var.append(temp)
+
+
 client = boto3.client('cloudformation')
 client.create_stack(
-    StackName=os.environ["StackName"],
-    TemplateBody= template,
-    Parameters=os.environ["Parameters"],
-    TimeoutInMinutes=123,
+    StackName = os.environ["StackName"],
+    TemplateBody = template,
+    Parameters = var,
+    TimeoutInMinutes = 123,
 )
+
+

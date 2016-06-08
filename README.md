@@ -1,7 +1,27 @@
+#CoreOS
+
+#Installation steps 
+
+1-Export Enviromental Variables
+
+```
+ # export AWS_ACCESS_KEY_ID='Your AWS access key'
+ # export AWS_SECRET_ACCESS_KEY='Your AWS secret key'
+ # export AWS_DEFAULT_REGION=<Region you wanna create stack in>
+``` 
+
+2-Build the container
+
+```
+ # docker build -t afarid/stack  .
+```
+3-Launch Your stack 
+`
 ```
  # docker run -it -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
                   -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY  \
                   -e StackName=$StackName \
-                  -e Template=$Template
-                  -e Parameters=$Parameters
+		  -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+                  -e Template=$Template \ 
+                  -e Parameters=$Parameters \ 
 ```
