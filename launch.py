@@ -4,6 +4,7 @@ import json
 import sys
 import boto3
 
+os.system("git clone " + os.environ["Repo"] + " app")
 
 with open(os.environ["Parameters"], 'r') as r:
     Parm = yaml.load(r)
